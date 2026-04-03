@@ -77,7 +77,7 @@ func _delete_workspace():
 	WorkspacesPluginSettings.instance.remove_workspace(workspace)
 
 func _unhide():
-	pass
+	WorkspaceV2.unhide_features()
 
 func _save_current_layout():
-	pass
+	GrapplerLayoutsDialog.force_save_layout(WorkspacesPluginSettings.instance.get_active_workspace().layout_name)

@@ -19,6 +19,9 @@ layout_mode = 2
 
 [node name="ItemList" parent="HBoxContainer" unique_id=538619642 instance=ExtResource("3_csgda")]
 layout_mode = 2
+item_count = 2
+item_0/text = "Data"
+item_1/text = "Data Types"
 
 [node name="MenuButton" type="MenuButton" parent="HBoxContainer" unique_id=1738470151]
 unique_name_in_owner = true

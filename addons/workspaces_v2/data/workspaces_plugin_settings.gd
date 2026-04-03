@@ -26,7 +26,6 @@ signal active_workspace_changed(new_workspace: WorkspaceV2, previous_workspace: 
 
 func add_group(new_group: WorkspaceGroup):
 	_groups.append(new_group)
-	_sort_groups()
 	change_group(new_group)
 
 func add_workspace(new_workspace: WorkspaceV2):
@@ -34,10 +33,37 @@ func add_workspace(new_workspace: WorkspaceV2):
 	change_workspace(new_workspace)
 
 func change_group(new_group: WorkspaceGroup):
+	_sort_groups()
 	var previous_group = _active_group
 	_active_group = new_group
 	active_group_changed.emit(new_group, previous_group)
 	save()
+
+	var first: WorkspaceV2	
+	var same_name: WorkspaceV2
+	var same_layout: WorkspaceV2
+	var index = 0
+	var active_workspace = get_active_workspace()
+	
+	for workspace in get_workspaces_in_active_group():
+		if index == 0:
+			first = workspace
+			if active_workspace == null:
+				break
+		if not same_name:
+			if workspace.workspace_name == active_workspace.workspace_name:
+				same_name = workspace
+		if not same_layout:
+			if workspace.layout_name == active_workspace.layout_name:
+				same_layout = workspace
+		index = index + 1
+	
+	if same_name:
+		change_workspace(same_name)
+	elif same_layout:
+		change_workspace(same_layout)
+	elif first:
+		change_workspace(first)
 
 func change_workspace(new_workspace: WorkspaceV2):
 	if new_workspace == _active_workspace:

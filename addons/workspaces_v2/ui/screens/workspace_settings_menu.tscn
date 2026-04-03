@@ -27,9 +27,10 @@ theme_override_constants/separation = 0
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=1649875346]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 3
 
 [node name="Main Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=898700216]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -102,7 +103,6 @@ _name_text = "Automatically set \"FileSystem Auto Navigate\" to the currently se
 _editing_property = &"auto_set_file_on_unapply"
 
 [node name="Hide Editor Features" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=1631235358]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
@@ -130,6 +130,11 @@ _editing_property = &"hide_run_bar"
 layout_mode = 2
 _name_text = "Hide Bottom Bar"
 _editing_property = &"hide_bottom_bar"
+
+[node name="WorkspaceSettingCheckbox5" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=441077631 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Hide Entire Middle Area"
+_editing_property = &"hide_entire_middle_area"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1370845117]
 layout_mode = 2
