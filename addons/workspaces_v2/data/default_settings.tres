@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="WorkspacesPluginSettings" format=3 uid="uid://c85k8jgx7stsx"]
+
+[ext_resource type="Script" uid="uid://cpiwhfvjsa8iq" path="res://addons/workspaces_v2/data/workspaces_plugin_settings.gd" id="1_tmyiu"]
+[ext_resource type="Script" uid="uid://dj3snwrupuu28" path="res://addons/workspaces_v2/data/workspace_group.gd" id="1_vqblh"]
+
+[resource]
+script = ExtResource("1_tmyiu")
+metadata/_custom_type_script = "uid://cpiwhfvjsa8iq"

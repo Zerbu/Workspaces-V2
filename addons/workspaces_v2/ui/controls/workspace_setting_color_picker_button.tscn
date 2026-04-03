@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d0hqcfy1tpk1a"]
+
+[ext_resource type="Script" uid="uid://vjodc28t6vg2" path="res://addons/workspaces_v2/ui/controls/workspace_setting_color_picker_button.gd" id="1_418hh"]
+
+[node name="WorkplaceSettingColorPickerButton" type="MarginContainer" unique_id=948836020]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_418hh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1213773072]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="HBoxContainer" unique_id=471588013]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1489479771]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="HBoxContainer/VBoxContainer" unique_id=1859434961]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=724011288]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2

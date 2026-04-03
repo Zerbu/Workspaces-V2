@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bojkx5qon0s6f"]
+
+[ext_resource type="Script" uid="uid://b580y1eda5lxc" path="res://addons/workspaces_v2/ui/screens/workspace_group_settings_menu.gd" id="1_nk0cm"]
+[ext_resource type="PackedScene" uid="uid://b5vv7qgk0mlyu" path="res://addons/workspaces_v2/ui/controls/workspace_setting_line_edit.tscn" id="1_xs6mi"]
+
+[node name="WorkspaceGroupSettingsMenu" type="MarginContainer" unique_id=1948541773]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nk0cm")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=815660728]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer2" unique_id=1155160383]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Group Settings" type="VBoxContainer" parent="VBoxContainer2/TabContainer" unique_id=1080715300]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_tab_index = 0
+
+[node name="WorkplaceSettingLineEdit" parent="VBoxContainer2/TabContainer/Group Settings" unique_id=948836020 groups=["workspace_group_setting_controls"] instance=ExtResource("1_xs6mi")]
+layout_mode = 2
+_name_text = "Group Name"
+_editing_property = &"group_name"
+
+[node name="SaveGroupButton" type="Button" parent="VBoxContainer2" unique_id=2027589325]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Group"
+
+[connection signal="pressed" from="VBoxContainer2/SaveGroupButton" to="." method="_on_save_group_button_pressed"]

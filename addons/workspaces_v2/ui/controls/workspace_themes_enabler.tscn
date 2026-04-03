@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://2jq8brgfri7m"]
+
+[ext_resource type="Script" uid="uid://b30c24teqblyu" path="res://addons/workspaces_v2/ui/controls/workspace_themes_enabler.gd" id="1_6ka7m"]
+
+[node name="WorkspaceThemesEnabler" type="MarginContainer" unique_id=719680989]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_6ka7m")
+
+[node name="EnablePanel" type="PanelContainer" parent="." unique_id=1566549017]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EnablePanel" unique_id=1155177516]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EnablePanel/VBoxContainer" unique_id=1853352650]
+layout_mode = 2
+text = "Per-workspace themes are currently disabled. Press the button below to enable them.
+WARNING: Your current theme settings will not be saved, and will not be restored if you disable or remove Workspaces."
+
+[node name="EnableButton" type="Button" parent="EnablePanel/VBoxContainer" unique_id=358906340]
+layout_mode = 2
+text = "Enable Per-Workspace Themes"
+
+[node name="DisablePanel" type="PanelContainer" parent="." unique_id=1893665163]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DisablePanel" unique_id=727598612]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DisablePanel/VBoxContainer" unique_id=1075447942]
+layout_mode = 2
+text = "Per-workspace themes are currently enabled."
+
+[node name="DisableButton" type="Button" parent="DisablePanel/VBoxContainer" unique_id=444509148]
+layout_mode = 2
+text = "Disable Per-Workspace Themes"
+
+[connection signal="pressed" from="EnablePanel/VBoxContainer/EnableButton" to="." method="_on_enable_button_pressed"]
+[connection signal="pressed" from="DisablePanel/VBoxContainer/DisableButton" to="." method="_on_disable_button_pressed"]

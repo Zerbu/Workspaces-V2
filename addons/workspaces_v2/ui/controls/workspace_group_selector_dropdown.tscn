@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://csm06ttmk2rt3"]
+
+[ext_resource type="Script" uid="uid://bmyuu1r6ovbw2" path="res://addons/workspaces_v2/ui/controls/workspace_group_selector_dropdown.gd" id="1_tj1h6"]
+
+[node name="WorkspaceGroupSelectorDropdown" type="MarginContainer" unique_id=2117592581]
+script = ExtResource("1_tj1h6")
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=719924996]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 1
+item_count = 2
+popup/item_0/text = "New Group 2"
+popup/item_0/id = 0
+popup/item_1/text = "New Group"
+popup/item_1/id = 1
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cm6vg1x7dvc56"]
+
+[ext_resource type="Script" uid="uid://dbtdu2jf6bkg3" path="res://addons/workspaces_v2/ui/screens/workspace_bar_item_list.gd" id="1_1p5t4"]
+
+[node name="WorkspaceBarItemList" type="ItemList" unique_id=538619642]
+size_flags_horizontal = 3
+auto_width = true
+auto_height = true
+item_count = 1
+max_columns = 0
+item_0/text = "Test Workspace"
+script = ExtResource("1_1p5t4")
+
+[connection signal="item_selected" from="." to="." method="_on_item_selected"]

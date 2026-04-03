@@ -1,0 +1,83 @@
+@tool
+extends MarginContainer
+
+enum MenuItems
+{
+	GROUP_SETTINGS = 0,
+	WORKSPACE_SETTINGS = 1,
+	NEW_GROUP = 2,
+	NEW_WORKSPACE = 3,
+	DELETE_GROUP = 4,
+	DELETE_WORKSPACE = 5,
+	UNHIDE = 6,
+	SAVE_CURRENT_LAYOUT = 7,
+}
+
+var workspace_settings_menu = preload("res://addons/workspaces_v2/ui/screens/workspace_settings_menu.tscn")
+var workspace_group_settings_menu = preload("res://addons/workspaces_v2/ui/screens/workspace_group_settings_menu.tscn")
+
+@onready var menu_button: MenuButton = %MenuButton
+
+func _ready():
+	menu_button.get_popup().id_pressed.connect(_on_menu_button_id_pressed)
+
+func _on_menu_button_id_pressed(id: int):
+	match id:
+		MenuItems.GROUP_SETTINGS:
+			_open_group_settings()
+		MenuItems.WORKSPACE_SETTINGS:
+			_open_workspace_settings()
+		MenuItems.NEW_GROUP:
+			_create_group()
+		MenuItems.NEW_WORKSPACE:
+			_create_workspace()
+		MenuItems.DELETE_GROUP:
+			_delete_group()
+		MenuItems.DELETE_WORKSPACE:
+			_delete_workspace()
+		MenuItems.UNHIDE:
+			_unhide()
+		MenuItems.SAVE_CURRENT_LAYOUT:
+			_save_current_layout()
+
+func _open_workspace_settings():
+	var workspace = WorkspacesPluginSettings.instance.get_active_workspace()
+	var menu = workspace_settings_menu.instantiate()
+	menu.workspace = workspace
+	GrapplerWindows.open_simple_window(workspace.workspace_name, menu)
+
+func _open_group_settings():
+	var group = WorkspacesPluginSettings.instance.get_active_group()
+	var menu = workspace_group_settings_menu.instantiate()
+	menu.group = group
+	GrapplerWindows.open_simple_window(group.group_name, menu)
+
+func _create_group():
+	var group = WorkspaceGroup.new()
+	group.group_name = "New Group"
+	WorkspacesPluginSettings.instance.add_group(group)
+	_open_group_settings()
+
+func _create_workspace():
+	var workspace = WorkspaceV2.new()
+	workspace.workspace_name = "New Workspace"
+	WorkspacesPluginSettings.instance.add_workspace(workspace)
+	_open_workspace_settings()
+
+func _delete_group():
+	var group = WorkspacesPluginSettings.instance.get_active_group()
+	if not group:
+		return
+	WorkspacesPluginSettings.instance.remove_group(group)
+
+func _delete_workspace():
+	var workspace = WorkspacesPluginSettings.instance.get_active_workspace()
+	if not workspace:
+		return
+	WorkspacesPluginSettings.instance.remove_workspace(workspace)
+
+func _unhide():
+	pass
+
+func _save_current_layout():
+	pass

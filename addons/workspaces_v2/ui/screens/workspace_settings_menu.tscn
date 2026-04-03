@@ -1,0 +1,330 @@
+[gd_scene format=3 uid="uid://xgc5cwa3sy2s"]
+
+[ext_resource type="Script" uid="uid://tv0au81w4wvy" path="res://addons/workspaces_v2/ui/screens/workspace_settings_menu.gd" id="1_8825b"]
+[ext_resource type="PackedScene" uid="uid://b5vv7qgk0mlyu" path="res://addons/workspaces_v2/ui/controls/workspace_setting_line_edit.tscn" id="1_nawmj"]
+[ext_resource type="PackedScene" uid="uid://y3rm36aopn4j" path="res://addons/workspaces_v2/ui/controls/workspace_group_checkboxes.tscn" id="3_npo13"]
+[ext_resource type="PackedScene" uid="uid://bm1lslskef8c4" path="res://addons/workspaces_v2/ui/controls/workspace_setting_option_button.tscn" id="4_kbifj"]
+[ext_resource type="PackedScene" uid="uid://bnrclcs6cxwcl" path="res://addons/workspaces_v2/ui/controls/workspace_setting_checkbox.tscn" id="4_ktq0c"]
+[ext_resource type="PackedScene" uid="uid://b206vj13fjqup" path="res://addons/workspaces_v2/ui/controls/workspace_setting_index_option_button.tscn" id="5_0jjuq"]
+[ext_resource type="PackedScene" uid="uid://crrmxitgguag3" path="res://addons/workspaces_v2/ui/controls/workspace_setting_text_edit.tscn" id="6_qgdir"]
+[ext_resource type="PackedScene" uid="uid://hdfbhtub1h6y" path="res://addons/workspaces_v2/ui/controls/workspace_setting_workspace_selector.tscn" id="7_j2hx7"]
+[ext_resource type="PackedScene" uid="uid://2jq8brgfri7m" path="res://addons/workspaces_v2/ui/controls/workspace_themes_enabler.tscn" id="8_fhpv0"]
+[ext_resource type="PackedScene" uid="uid://d0hqcfy1tpk1a" path="res://addons/workspaces_v2/ui/controls/workspace_setting_color_picker_button.tscn" id="9_3r14v"]
+[ext_resource type="PackedScene" uid="uid://cm36bb1mk3758" path="res://addons/workspaces_v2/ui/controls/workspace_setting_spin_box.tscn" id="10_3oekb"]
+
+[node name="WorkspaceSettingsMenu" type="MarginContainer" unique_id=585560613]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8825b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=925523165]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=1649875346]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Main Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=898700216]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Main Settings" unique_id=1000387315]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WorkplaceSettingLineEdit" parent="VBoxContainer/TabContainer/Main Settings/VBoxContainer" unique_id=948836020 groups=["workspace_setting_controls"] instance=ExtResource("1_nawmj")]
+layout_mode = 2
+_name_text = "Workspace Name"
+_editing_property = &"workspace_name"
+
+[node name="WorkplaceSettingLineEdit2" parent="VBoxContainer/TabContainer/Main Settings/VBoxContainer" unique_id=394629171 groups=["workspace_setting_controls"] instance=ExtResource("1_nawmj")]
+layout_mode = 2
+_name_text = "Layout Name"
+_info_text = "Godot will automatically apply this layout when switching to this workspace.
+You can add or delete layouts from Editor > Editor Layout."
+_editing_property = &"layout_name"
+
+[node name="WorkspaceGroupCheckboxes" parent="VBoxContainer/TabContainer/Main Settings/VBoxContainer" unique_id=1647992137 groups=["workspace_setting_controls"] instance=ExtResource("3_npo13")]
+layout_mode = 2
+_editing_property = &"_groups"
+
+[node name="Main Screen" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=880764420]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Main Screen" unique_id=703625914]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WorkspaceSettingOptionButton" parent="VBoxContainer/TabContainer/Main Screen/VBoxContainer" unique_id=1318845907 groups=["workspace_setting_controls"] instance=ExtResource("4_kbifj")]
+layout_mode = 2
+_name_text = "Auto Set Main Screen"
+_editing_property = &"auto_set_main_screen"
+_options = Array[String](["2D", "3D", "Script", "Game", "AssetLib"])
+
+[node name="FileSystem" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=679037792]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/FileSystem" unique_id=193022449]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WorkspaceSettingIDOptionButton" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer" unique_id=1780069103 groups=["workspace_setting_controls"] instance=ExtResource("5_0jjuq")]
+unique_name_in_owner = true
+layout_mode = 2
+_name_text = "FileSystem Auto Navigate"
+_editing_property = &"filesystem_auto_navigate_type"
+_options = Array[String](["None", "Current Script", "Current Scene Tab", "Current Inspector Item"])
+
+[node name="FileSystemAutoNavigatePathContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer" unique_id=393310970]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WorkplaceSettingLineEdit" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer" unique_id=1295666420 groups=["workspace_setting_controls"] instance=ExtResource("1_nawmj")]
+layout_mode = 2
+_name_text = "Auto Navigate to Path on Enter"
+_editing_property = &"filesystem_auto_navigate_path"
+
+[node name="WorkspaceSettingCheckbox" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer" unique_id=302641858 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Automatically set \"FileSystem Auto Navigate\" to the currently selected file when exiting the workspace"
+_editing_property = &"auto_set_file_on_unapply"
+
+[node name="Hide Editor Features" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=1631235358]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Hide Editor Features" unique_id=1246894740]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WorkspaceSettingCheckbox" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1527804530 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Hide Menu Bar"
+_editing_property = &"hide_menu_bar"
+
+[node name="WorkspaceSettingCheckbox2" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=932033631 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Hide Main Screen Buttons"
+_editing_property = &"hide_main_screen_buttons"
+
+[node name="WorkspaceSettingCheckbox3" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1342005924 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Hide Run Bar"
+_editing_property = &"hide_run_bar"
+
+[node name="WorkspaceSettingCheckbox4" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1637993210 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Hide Bottom Bar"
+_editing_property = &"hide_bottom_bar"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1370845117]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer" unique_id=1453017271]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Hide Tabs"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer" unique_id=1139472377]
+layout_mode = 2
+
+[node name="WorkspaceSettingCheckbox" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1830005555 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Left Docks 1 Top"
+_editing_property = &"hide_tabs_left_1_top"
+
+[node name="WorkspaceSettingCheckbox2" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=134224095 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Left Docks 1 Bottom"
+_editing_property = &"hide_tabs_left_1_bottom"
+
+[node name="WorkspaceSettingCheckbox3" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1634673264 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Left Docks 2 Top"
+_editing_property = &"hide_tabs_left_2_top"
+
+[node name="WorkspaceSettingCheckbox4" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=391451315 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Left Docks 2 Bottom"
+_editing_property = &"hide_tabs_left_2_bottom"
+
+[node name="WorkspaceSettingCheckbox5" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=751070103 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Scene Tabs"
+_editing_property = &"hide_scene_tabs"
+
+[node name="WorkspaceSettingCheckbox6" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=681092199 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Right Docks 1 Top"
+_editing_property = &"hide_tabs_right_1_top"
+
+[node name="WorkspaceSettingCheckbox7" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=888887405 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Right Docks 1 Bottom"
+_editing_property = &"hide_tabs_right_1_bottom"
+
+[node name="WorkspaceSettingCheckbox8" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1615025978 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Right Docks 2 Top"
+_editing_property = &"hide_tabs_right_2_top"
+
+[node name="WorkspaceSettingCheckbox9" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=97812143 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Right Docks 2 Bottom"
+_editing_property = &"hide_tabs_right_2_bottom"
+
+[node name="WorkspaceSettingCheckbox10" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1701678971 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Bottom Docks Left (Godot 4.7+)"
+_editing_property = &"hide_tabs_bottom_left"
+
+[node name="WorkspaceSettingCheckbox11" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=522755088 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Bottom Docks Right (Godot 4.7+)"
+_editing_property = &"hide_tabs_bottom_right"
+
+[node name="Auto Switch" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=746615676]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Auto Switch" unique_id=1917541543]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Auto Switch/VBoxContainer" unique_id=1776423615]
+layout_mode = 2
+text = "Godot will automatically switch to one of the selected workspaces when accessing a certain part of the editor."
+
+[node name="WorkspaceSelector2D" parent="VBoxContainer/TabContainer/Auto Switch/VBoxContainer" unique_id=2117592581 groups=["workspace_setting_controls"] instance=ExtResource("7_j2hx7")]
+unique_name_in_owner = true
+layout_mode = 2
+_name_text = "2D"
+_editing_property = &"workspace_2d"
+
+[node name="WorkspaceSelector3D" parent="VBoxContainer/TabContainer/Auto Switch/VBoxContainer" unique_id=1242916987 groups=["workspace_setting_controls"] instance=ExtResource("7_j2hx7")]
+unique_name_in_owner = true
+layout_mode = 2
+_name_text = "3D"
+_editing_property = &"workspace_3d"
+
+[node name="WorkspaceSelectorScript" parent="VBoxContainer/TabContainer/Auto Switch/VBoxContainer" unique_id=1787345557 groups=["workspace_setting_controls"] instance=ExtResource("7_j2hx7")]
+unique_name_in_owner = true
+layout_mode = 2
+_name_text = "Script"
+_editing_property = &"workspace_script"
+
+[node name="WorkspaceSelectorGame" parent="VBoxContainer/TabContainer/Auto Switch/VBoxContainer" unique_id=994284227 groups=["workspace_setting_controls"] instance=ExtResource("7_j2hx7")]
+unique_name_in_owner = true
+layout_mode = 2
+_name_text = "Game"
+_editing_property = &"workspace_game"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Auto Switch/VBoxContainer" unique_id=1078553599]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="CopyToGroupButton" type="Button" parent="VBoxContainer/TabContainer/Auto Switch/VBoxContainer/HBoxContainer" unique_id=1308929239]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Copy Auto Switch settings to all workspaces in the active group"
+
+[node name="Theme Options" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=2140556330]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Theme Options" unique_id=959458077]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WorkspaceThemesEnabler" parent="VBoxContainer/TabContainer/Theme Options/VBoxContainer" unique_id=719680989 instance=ExtResource("8_fhpv0")]
+layout_mode = 2
+
+[node name="WorkplaceSettingColorPickerButton" parent="VBoxContainer/TabContainer/Theme Options/VBoxContainer" unique_id=966478006 groups=["workspace_setting_controls"] instance=ExtResource("9_3r14v")]
+layout_mode = 2
+_name_text = "Base Color"
+_editing_property = &"theme_base_color"
+
+[node name="WorkplaceSettingColorPickerButton2" parent="VBoxContainer/TabContainer/Theme Options/VBoxContainer" unique_id=1575385525 groups=["workspace_setting_controls"] instance=ExtResource("9_3r14v")]
+layout_mode = 2
+_name_text = "Accent Color"
+_editing_property = &"theme_accent_color"
+
+[node name="WorkplaceSettingSpinBox" parent="VBoxContainer/TabContainer/Theme Options/VBoxContainer" unique_id=1601229919 groups=["workspace_setting_controls"] instance=ExtResource("10_3oekb")]
+layout_mode = 2
+_name_text = "Contrast"
+_editing_property = &"theme_contrast"
+_max_value = 5.0
+_step = 0.1
+
+[node name="WorkplaceSettingSpinBox2" parent="VBoxContainer/TabContainer/Theme Options/VBoxContainer" unique_id=1848744651 groups=["workspace_setting_controls"] instance=ExtResource("10_3oekb")]
+layout_mode = 2
+_name_text = "Base Spacing"
+_editing_property = &"theme_base_spacing"
+
+[node name="WorkplaceSettingSpinBox3" parent="VBoxContainer/TabContainer/Theme Options/VBoxContainer" unique_id=1152295996 groups=["workspace_setting_controls"] instance=ExtResource("10_3oekb")]
+layout_mode = 2
+_name_text = "Additional Spacing"
+_editing_property = &"theme_additional_spacing"
+
+[node name="CopyThemeButton" type="Button" parent="VBoxContainer/TabContainer/Theme Options/VBoxContainer" unique_id=98557004]
+layout_mode = 2
+text = "Copy theme settings to all workspaces in the active group"
+
+[node name="Experimental" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=2126567068]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Experimental" unique_id=1958488425]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WorkspaceSettingCheckbox" parent="VBoxContainer/TabContainer/Experimental/VBoxContainer" unique_id=1026301326 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Automatically save the layout when exiting this workspace"
+_info_text = "This feature is hacky and will cause the \"Save Layout\" dialog to flash on the screen."
+_editing_property = &"force_save_layout"
+
+[node name="WorkspaceSettingTextEdit" parent="VBoxContainer/TabContainer/Experimental/VBoxContainer" unique_id=2029589127 groups=["workspace_setting_controls"] instance=ExtResource("6_qgdir")]
+layout_mode = 2
+_name_text = "File Filter: Names"
+_info_text = "The FileSystem dock will only show files with these names.
+This is usually used for folders."
+_editing_property = &"file_filter_names"
+
+[node name="WorkspaceSettingTextEdit2" parent="VBoxContainer/TabContainer/Experimental/VBoxContainer" unique_id=318222749 groups=["workspace_setting_controls"] instance=ExtResource("6_qgdir")]
+layout_mode = 2
+_name_text = "File Filter: Extensions"
+_info_text = "The FileSystem dock will only show files with these extensions.Examples: .gd, .tscn, .png
+Note: In split mode, this feature is only partially supported. Files that don't match the filter are disabled, but not hidden."
+_editing_property = &"file_filter_extensions"
+
+[node name="SaveWorkspaceButton" type="Button" parent="VBoxContainer" unique_id=421270245]
+layout_mode = 2
+text = "Save Settings"
+
+[connection signal="pressed" from="VBoxContainer/TabContainer/Auto Switch/VBoxContainer/HBoxContainer/CopyToGroupButton" to="." method="_on_copy_to_group_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Theme Options/VBoxContainer/CopyThemeButton" to="." method="_on_copy_theme_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveWorkspaceButton" to="." method="_on_save_workspace_button_pressed"]
