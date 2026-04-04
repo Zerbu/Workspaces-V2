@@ -27,10 +27,9 @@ theme_override_constants/separation = 0
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=1649875346]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 3
+current_tab = 0
 
 [node name="Main Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=898700216]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -51,30 +50,20 @@ _info_text = "Godot will automatically apply this layout when switching to this 
 You can add or delete layouts from Editor > Editor Layout."
 _editing_property = &"layout_name"
 
-[node name="WorkspaceGroupCheckboxes" parent="VBoxContainer/TabContainer/Main Settings/VBoxContainer" unique_id=1647992137 groups=["workspace_setting_controls"] instance=ExtResource("3_npo13")]
-layout_mode = 2
-_editing_property = &"_groups"
-
-[node name="Main Screen" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=880764420]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Main Screen" unique_id=703625914]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="WorkspaceSettingOptionButton" parent="VBoxContainer/TabContainer/Main Screen/VBoxContainer" unique_id=1318845907 groups=["workspace_setting_controls"] instance=ExtResource("4_kbifj")]
+[node name="WorkspaceSettingOptionButton" parent="VBoxContainer/TabContainer/Main Settings/VBoxContainer" unique_id=1318845907 groups=["workspace_setting_controls"] instance=ExtResource("4_kbifj")]
 layout_mode = 2
 _name_text = "Auto Set Main Screen"
 _editing_property = &"auto_set_main_screen"
 _options = Array[String](["2D", "3D", "Script", "Game", "AssetLib"])
 
+[node name="WorkspaceGroupCheckboxes" parent="VBoxContainer/TabContainer/Main Settings/VBoxContainer" unique_id=1647992137 groups=["workspace_setting_controls"] instance=ExtResource("3_npo13")]
+layout_mode = 2
+_editing_property = &"_groups"
+
 [node name="FileSystem" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=679037792]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/FileSystem" unique_id=193022449]
 layout_mode = 2
@@ -92,10 +81,27 @@ _options = Array[String](["None", "Current Script", "Current Scene Tab", "Curren
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="WorkplaceSettingLineEdit" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer" unique_id=1295666420 groups=["workspace_setting_controls"] instance=ExtResource("1_nawmj")]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer" unique_id=843983562]
 layout_mode = 2
+
+[node name="WorkplaceSettingLineEdit" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer/HBoxContainer" unique_id=1295666420 groups=["workspace_setting_controls"] instance=ExtResource("1_nawmj")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 _name_text = "Auto Navigate to Path on Enter"
 _editing_property = &"filesystem_auto_navigate_path"
+
+[node name="BrowseButton" type="Button" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer/HBoxContainer" unique_id=1127539956]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Browse"
+
+[node name="FileDialog" type="FileDialog" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer/HBoxContainer" unique_id=727749151]
+unique_name_in_owner = true
+title = "Open a File or Directory"
+initial_position = 1
+file_mode = 3
+display_mode = 1
 
 [node name="WorkspaceSettingCheckbox" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer" unique_id=302641858 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
@@ -103,8 +109,9 @@ _name_text = "Automatically set \"FileSystem Auto Navigate\" to the currently se
 _editing_property = &"auto_set_file_on_unapply"
 
 [node name="Hide Editor Features" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=1631235358]
+visible = false
 layout_mode = 2
-metadata/_tab_index = 3
+metadata/_tab_index = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Hide Editor Features" unique_id=1246894740]
 layout_mode = 2
@@ -207,7 +214,7 @@ _editing_property = &"hide_tabs_bottom_right"
 [node name="Auto Switch" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=746615676]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 4
+metadata/_tab_index = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Auto Switch" unique_id=1917541543]
 layout_mode = 2
@@ -255,7 +262,7 @@ text = "Copy Auto Switch settings to all workspaces in the active group"
 [node name="Theme Options" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=2140556330]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 5
+metadata/_tab_index = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Theme Options" unique_id=959458077]
 layout_mode = 2
@@ -299,7 +306,7 @@ text = "Copy theme settings to all workspaces in the active group"
 [node name="Experimental" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=2126567068]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 6
+metadata/_tab_index = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Experimental" unique_id=1958488425]
 layout_mode = 2
@@ -330,6 +337,9 @@ _editing_property = &"file_filter_extensions"
 layout_mode = 2
 text = "Save Settings"
 
+[connection signal="pressed" from="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer/HBoxContainer/BrowseButton" to="." method="_on_browse_button_pressed"]
+[connection signal="dir_selected" from="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer/HBoxContainer/FileDialog" to="." method="_on_file_dialog_dir_selected"]
+[connection signal="file_selected" from="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer/HBoxContainer/FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Auto Switch/VBoxContainer/HBoxContainer/CopyToGroupButton" to="." method="_on_copy_to_group_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Theme Options/VBoxContainer/CopyThemeButton" to="." method="_on_copy_theme_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SaveWorkspaceButton" to="." method="_on_save_workspace_button_pressed"]

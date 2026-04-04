@@ -10,6 +10,10 @@ var workspace: WorkspaceV2
 
 @onready var file_system_auto_navigate_path_container: VBoxContainer = %FileSystemAutoNavigatePathContainer
 
+@onready var file_dialog: FileDialog = %FileDialog
+
+@onready var workplace_setting_line_edit: MarginContainer = %WorkplaceSettingLineEdit
+
 func _ready():
 	for control in get_tree().get_nodes_in_group("workspace_setting_controls"):
 		control.edit(workspace)
@@ -34,3 +38,14 @@ func _on_copy_theme_button_pressed() -> void:
 		group_workspace.theme_base_color = workspace.theme_base_color
 		group_workspace.theme_base_spacing = workspace.theme_base_spacing
 		group_workspace.theme_contrast = workspace.theme_contrast
+
+
+func _on_browse_button_pressed() -> void:
+	file_dialog.show()
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	# todo: don't access private variable
+	workplace_setting_line_edit._line_edit.text = path
+
+func _on_file_dialog_dir_selected(dir: String) -> void:
+	workplace_setting_line_edit._line_edit.text = dir

@@ -22,6 +22,7 @@ signal active_workspace_changed(new_workspace: WorkspaceV2, previous_workspace: 
 @export var _active_group: WorkspaceGroup
 @export var _active_workspace: WorkspaceV2
 
+@export var auto_switch_enabled: bool = true
 @export var themes_enabled: bool
 
 func add_group(new_group: WorkspaceGroup):

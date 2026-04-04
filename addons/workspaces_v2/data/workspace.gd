@@ -44,11 +44,6 @@ enum FileSystemAutoNavigateTypes
 @export var file_filter_names: String
 @export var file_filter_extensions: String
 
-@export var auto_switch_on_script: String
-@export var auto_switch_on_2d: String
-@export var auto_switch_on_3d: String
-@export var auto_switch_on_game: String
-
 @export var hide_tabs_bottom_left: bool
 @export var hide_tabs_bottom_right: bool
 
@@ -63,8 +58,8 @@ var workspace_game: WorkspaceV2
 @export var _workspace_game_index: int
 
 # Themes
-@export var theme_base_color: Color = Color.GRAY
-@export var theme_accent_color: Color = Color.WHITE
+@export var theme_base_color: Color = Color("#292929")
+@export var theme_accent_color: Color = Color("#569eff")
 @export var theme_contrast: float = 0.3
 @export var theme_base_spacing: float = 4
 @export var theme_additional_spacing: float = 0
@@ -219,18 +214,19 @@ static func unhide_features():
 		GrapplerDocks.bottom_dock_right_tab_container.tabs_visible = true
 
 func _on_process():
-	if workspace_2d and GrapplerDocks.node_2d_and_ui_editor.is_visible_in_tree():
-		WorkspacesPluginSettings.instance.change_workspace(workspace_2d)
-		return
-	elif workspace_3d and GrapplerDocks.node_3d_editor.is_visible_in_tree():
-		WorkspacesPluginSettings.instance.change_workspace(workspace_3d)
-		return
-	elif workspace_script and GrapplerDocks.script_editor.is_visible_in_tree():
-		WorkspacesPluginSettings.instance.change_workspace(workspace_script)
-		return
-	elif workspace_game and GrapplerDocks.game_view.is_visible_in_tree():
-		WorkspacesPluginSettings.instance.change_workspace(workspace_game)
-		return
+	if WorkspacesPluginSettings.instance.auto_switch_enabled:
+		if workspace_2d and GrapplerDocks.node_2d_and_ui_editor.is_visible_in_tree():
+			WorkspacesPluginSettings.instance.change_workspace(workspace_2d)
+			return
+		elif workspace_3d and GrapplerDocks.node_3d_editor.is_visible_in_tree():
+			WorkspacesPluginSettings.instance.change_workspace(workspace_3d)
+			return
+		elif workspace_script and GrapplerDocks.script_editor.is_visible_in_tree():
+			WorkspacesPluginSettings.instance.change_workspace(workspace_script)
+			return
+		elif workspace_game and GrapplerDocks.game_view.is_visible_in_tree():
+			WorkspacesPluginSettings.instance.change_workspace(workspace_game)
+			return
 	
 	_process_auto_navigate()
 

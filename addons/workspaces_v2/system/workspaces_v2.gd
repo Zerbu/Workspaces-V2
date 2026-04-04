@@ -13,6 +13,7 @@ func _enter_tree() -> void:
 	_add_workspace_bar()
 	_add_relations_dropdown()
 	_setup_lazy_process()
+	WorkspacesPluginSettings.instance.refresh_active_workspace()
 
 func _delete_orphan_workspaces():
 	var deleted_any = false

@@ -11,6 +11,7 @@ enum MenuItems
 	DELETE_WORKSPACE = 5,
 	UNHIDE = 6,
 	SAVE_CURRENT_LAYOUT = 7,
+	TOGGLE_AUTO_SWITCH = 8
 }
 
 var workspace_settings_menu = preload("res://addons/workspaces_v2/ui/screens/workspace_settings_menu.tscn")
@@ -20,6 +21,7 @@ var workspace_group_settings_menu = preload("res://addons/workspaces_v2/ui/scree
 
 func _ready():
 	menu_button.get_popup().id_pressed.connect(_on_menu_button_id_pressed)
+	_refresh_menu_text()
 
 func _on_menu_button_id_pressed(id: int):
 	match id:
@@ -39,6 +41,9 @@ func _on_menu_button_id_pressed(id: int):
 			_unhide()
 		MenuItems.SAVE_CURRENT_LAYOUT:
 			_save_current_layout()
+		MenuItems.TOGGLE_AUTO_SWITCH:
+			WorkspacesPluginSettings.instance.auto_switch_enabled = not WorkspacesPluginSettings.instance.auto_switch_enabled
+			_refresh_menu_text()
 
 func _open_workspace_settings():
 	var workspace = WorkspacesPluginSettings.instance.get_active_workspace()
@@ -75,6 +80,12 @@ func _delete_workspace():
 	if not workspace:
 		return
 	WorkspacesPluginSettings.instance.remove_workspace(workspace)
+
+func _refresh_menu_text():
+	if WorkspacesPluginSettings.instance.auto_switch_enabled:
+		menu_button.get_popup().set_item_text(8, "Toggle Auto Switch (Currently Enabled)")
+	else:
+		menu_button.get_popup().set_item_text(8, "Toggle Auto Switch (Currently Disabled)")
 
 func _unhide():
 	WorkspaceV2.unhide_features()
