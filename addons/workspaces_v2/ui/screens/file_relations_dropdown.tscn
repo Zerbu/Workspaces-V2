@@ -12,5 +12,5 @@ tooltip_text = "Related Files
 This dropdown contains files with the same name, but a different extension"
 text = "⧉"
 item_count = 1
-popup/item_0/text = "file_relations_dropdown.gd"
+popup/item_0/text = "workspace_bar.tscn"
 popup/item_0/id = 0

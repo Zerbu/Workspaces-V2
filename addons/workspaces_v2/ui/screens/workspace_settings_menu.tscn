@@ -73,7 +73,8 @@ size_flags_vertical = 3
 [node name="WorkspaceSettingIDOptionButton" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer" unique_id=1780069103 groups=["workspace_setting_controls"] instance=ExtResource("5_0jjuq")]
 unique_name_in_owner = true
 layout_mode = 2
-_name_text = "FileSystem Auto Navigate"
+_name_text = "Auto Navigate to Opened File"
+_info_text = "The FileSystem dock will automatically navigate to the chosen file."
 _editing_property = &"filesystem_auto_navigate_type"
 _options = Array[String](["None", "Current Script", "Current Scene Tab", "Current Inspector Item"])
 
@@ -105,7 +106,7 @@ display_mode = 1
 
 [node name="WorkspaceSettingCheckbox" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer" unique_id=302641858 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
-_name_text = "Automatically set \"FileSystem Auto Navigate\" to the currently selected file when exiting the workspace"
+_name_text = "Automatically set \"Auto Navigate to Path on Enter\" to the currently selected file when exiting the workspace"
 _editing_property = &"auto_set_file_on_unapply"
 
 [node name="WorkspaceSettingCheckbox2" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer" unique_id=1292911147 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]

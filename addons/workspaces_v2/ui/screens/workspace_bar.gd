@@ -66,6 +66,16 @@ func _create_group():
 func _create_workspace():
 	var workspace = WorkspaceV2.new()
 	workspace.workspace_name = "New Workspace"
+	workspace.add_to_group(WorkspacesPluginSettings.instance.get_active_group())
+	
+	var active_workspace = WorkspacesPluginSettings.instance.get_active_workspace()
+	if active_workspace:
+		workspace.theme_accent_color = active_workspace.theme_accent_color
+		workspace.theme_additional_spacing = active_workspace.theme_additional_spacing
+		workspace.theme_base_color = active_workspace.theme_base_color
+		workspace.theme_base_spacing = active_workspace.theme_base_spacing
+		workspace.theme_contrast = active_workspace.theme_contrast
+	
 	WorkspacesPluginSettings.instance.add_workspace(workspace)
 	_open_workspace_settings()
 
