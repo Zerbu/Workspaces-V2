@@ -13,6 +13,8 @@ Workspaces is a plugin for Godot that allows you to create an quickly swap betwe
 - Hide features of the editor while a Workspace is active. For example, you can hide the scene tabs from your Script Workspace so you don't get distracted by them.
 - Automatically switch to another Workspace when accessing part of the editor. For example, you can have your Workspace automatically change to "Script" when opening a script.
 - Set Per-Workspace themes with custom Base Color, Accent Color, Contrast, Base Spacing and Additional Spacing.
+- Move docks anywhere, even places where they aren't normally allowed. You can add any dock to the bottom bar, or move docks from the bottom bar to a normal dock.
+- Adds a "Related Files" button to the FileSystem dock that makes switching between files with the same name but different extension (example, a .tscn and a .gd) quicker. This pairs well with the Auto Switch feature.
 
 # Experimental Features
 - Automatically save the layout when exiting the Workspace. (Note: This is hacky and causes the "Save Layout" dialog to flash on the screen)
