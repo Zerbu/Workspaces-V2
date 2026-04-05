@@ -12,6 +12,7 @@ func _enter_tree() -> void:
 	_delete_orphan_workspaces()
 	_add_workspace_bar()
 	_add_relations_dropdown()
+	_setup_auto_open()
 	_setup_lazy_process()
 	WorkspacesPluginSettings.instance.refresh_active_workspace()
 
@@ -30,8 +31,13 @@ func _add_workspace_bar():
 	GrapplerBase.root_vbox.move_child(workspace_bar, 0)
 
 func _add_relations_dropdown():
-	GrapplerFileSystem.header_vbox.add_child(relations_dropdown)
-	GrapplerFileSystem.header_vbox.move_child(relations_dropdown, 0)
+	GrapplerFileSystem.header_hbox.add_child(relations_dropdown)
+
+func _setup_auto_open():
+	GrapplerFileSystem.filesystem_dock.selection_changed.connect(_on_selected_file_changed)
+
+func _on_selected_file_changed():
+	WorkspacesPluginSettings.instance._on_selected_file_changed()
 
 func _setup_lazy_process():
 	lazy_process_timer = Timer.new()
@@ -49,13 +55,16 @@ func _process(delta: float):
 func _exit_tree() -> void:
 	_remove_workspace_bar()
 	_remove_relations_dropdown()
-	_destroy_lazy_process()
+	_stop_lazy_process()
 
 func _remove_workspace_bar():
 	GrapplerBase.root_vbox.remove_child(workspace_bar)
 
 func _remove_relations_dropdown():
-	GrapplerFileSystem.header_vbox.remove_child(relations_dropdown)
+	GrapplerFileSystem.header_hbox.remove_child(relations_dropdown)
 
-func _destroy_lazy_process():
+func _stop_auto_open():
+	GrapplerFileSystem.filesystem_dock.selection_changed.disconnect(_on_selected_file_changed)
+
+func _stop_lazy_process():
 	lazy_process_timer.queue_free()

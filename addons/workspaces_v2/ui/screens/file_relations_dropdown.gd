@@ -1,18 +1,19 @@
 @tool
 extends MarginContainer
 
-@onready var _option_button: OptionButton = $OptionButton
+@onready var _menu_button: MenuButton = %MenuButton
 
-var _option_button_file_paths: Array[String]
+var _menu_button_file_paths: Array[String]
 
 func _ready():
 	GrapplerFileSystem.filesystem_dock.selection_changed.connect(_on_filesystem_dock_selection_changed)
+	_menu_button.get_popup().index_pressed.connect(_on_menu_popup_item_selected)
 
 func _on_filesystem_dock_selection_changed():
-	_option_button.clear()
-	_option_button_file_paths.clear()
+	var menu_popup = _menu_button.get_popup()
 	
-	_option_button.add_item("(Related Files)")
+	menu_popup.clear()
+	_menu_button_file_paths.clear()
 	
 	for path in EditorInterface.get_selected_paths():
 		var dir = path.get_base_dir()
@@ -22,14 +23,21 @@ func _on_filesystem_dock_selection_changed():
 			if file.get_basename() == base:
 				var full_path = dir.path_join(file)
 				
-				_option_button_file_paths.append(full_path)
-				_option_button.add_item(file)
+				if full_path == path:
+					continue
+				
+				_menu_button_file_paths.append(full_path)
+				menu_popup.add_item(file)
 
-func _on_option_button_item_selected(index: int) -> void:
-	if index == 0:
-		return
+func _on_menu_popup_item_selected(index: int) -> void:
+	var path = _menu_button_file_paths[index-1]
+	
+	# This is done twice to ensure the editor registers that a file is being opened instead of just switching to its tab
+	GrapplerFileSystem.open_file(path)
+	await get_tree().process_frame
+	GrapplerFileSystem.open_file(path)
 
-	var path = _option_button_file_paths[index-1]
+func _on_menu_popup_item_selected_inner(path: String) -> void:
 	if path.get_extension() in ["tscn", "scn"]:
 		EditorInterface.open_scene_from_path(path)
 		var root = load(path).instantiate()

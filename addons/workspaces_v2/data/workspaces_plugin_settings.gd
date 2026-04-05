@@ -155,6 +155,13 @@ func _sort_groups():
 		return a.group_name < b.group_name
 	)
 
+#region Auto Open
+func _on_selected_file_changed():
+	var workspace = get_active_workspace()
+	if not workspace:
+		return
+	workspace._on_selected_file_changed()
+
 #region Process
 func _on_process(delta: float):
 	_process_group()

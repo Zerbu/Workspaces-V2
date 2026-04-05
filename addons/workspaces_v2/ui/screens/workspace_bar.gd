@@ -82,10 +82,11 @@ func _delete_workspace():
 	WorkspacesPluginSettings.instance.remove_workspace(workspace)
 
 func _refresh_menu_text():
+	var popup = menu_button.get_popup()
 	if WorkspacesPluginSettings.instance.auto_switch_enabled:
-		menu_button.get_popup().set_item_text(8, "Toggle Auto Switch (Currently Enabled)")
+		popup.set_item_text(popup.item_count-1, "Toggle Auto Switch (Currently Enabled)")
 	else:
-		menu_button.get_popup().set_item_text(8, "Toggle Auto Switch (Currently Disabled)")
+		popup.set_item_text(popup.item_count-1, "Toggle Auto Switch (Currently Disabled)")
 
 func _unhide():
 	WorkspaceV2.unhide_features()

@@ -108,6 +108,13 @@ layout_mode = 2
 _name_text = "Automatically set \"FileSystem Auto Navigate\" to the currently selected file when exiting the workspace"
 _editing_property = &"auto_set_file_on_unapply"
 
+[node name="WorkspaceSettingCheckbox2" parent="VBoxContainer/TabContainer/FileSystem/VBoxContainer/FileSystemAutoNavigatePathContainer" unique_id=1292911147 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+layout_mode = 2
+_name_text = "Automatically open a file when selected in the FileSystem dock"
+_info_text = "This means files can be opened with a single click.
+Also, if \"Auto Navigate to Path on Enter\" is set, the file will be opened automatically."
+_editing_property = &"auto_open_file"
+
 [node name="Hide Editor Features" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=1631235358]
 visible = false
 layout_mode = 2
@@ -143,70 +150,63 @@ layout_mode = 2
 _name_text = "Hide Entire Middle Area"
 _editing_property = &"hide_entire_middle_area"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1370845117]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer" unique_id=1453017271]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1453017271]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Hide Tabs"
-horizontal_alignment = 2
+text = "Hide Tabs:"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer" unique_id=1139472377]
-layout_mode = 2
-
-[node name="WorkspaceSettingCheckbox" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1830005555 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox6" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1830005555 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Left Docks 1 Top"
 _editing_property = &"hide_tabs_left_1_top"
 
-[node name="WorkspaceSettingCheckbox2" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=134224095 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox7" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=134224095 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Left Docks 1 Bottom"
 _editing_property = &"hide_tabs_left_1_bottom"
 
-[node name="WorkspaceSettingCheckbox3" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1634673264 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox8" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1634673264 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Left Docks 2 Top"
 _editing_property = &"hide_tabs_left_2_top"
 
-[node name="WorkspaceSettingCheckbox4" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=391451315 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox9" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=391451315 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Left Docks 2 Bottom"
 _editing_property = &"hide_tabs_left_2_bottom"
 
-[node name="WorkspaceSettingCheckbox5" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=751070103 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox10" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=751070103 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Scene Tabs"
 _editing_property = &"hide_scene_tabs"
 
-[node name="WorkspaceSettingCheckbox6" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=681092199 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox11" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=681092199 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Right Docks 1 Top"
 _editing_property = &"hide_tabs_right_1_top"
 
-[node name="WorkspaceSettingCheckbox7" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=888887405 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox12" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=888887405 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Right Docks 1 Bottom"
 _editing_property = &"hide_tabs_right_1_bottom"
 
-[node name="WorkspaceSettingCheckbox8" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1615025978 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox13" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1615025978 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Right Docks 2 Top"
 _editing_property = &"hide_tabs_right_2_top"
 
-[node name="WorkspaceSettingCheckbox9" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=97812143 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox14" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=97812143 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Right Docks 2 Bottom"
 _editing_property = &"hide_tabs_right_2_bottom"
 
-[node name="WorkspaceSettingCheckbox10" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1701678971 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox15" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=1701678971 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Bottom Docks Left (Godot 4.7+)"
 _editing_property = &"hide_tabs_bottom_left"
 
-[node name="WorkspaceSettingCheckbox11" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=522755088 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
+[node name="WorkspaceSettingCheckbox16" parent="VBoxContainer/TabContainer/Hide Editor Features/VBoxContainer" unique_id=522755088 groups=["workspace_setting_controls"] instance=ExtResource("4_ktq0c")]
 layout_mode = 2
 _name_text = "Bottom Docks Right (Godot 4.7+)"
 _editing_property = &"hide_tabs_bottom_right"
@@ -301,6 +301,7 @@ _editing_property = &"theme_additional_spacing"
 
 [node name="CopyThemeButton" type="Button" parent="VBoxContainer/TabContainer/Theme Options/VBoxContainer" unique_id=98557004]
 layout_mode = 2
+size_flags_horizontal = 8
 text = "Copy theme settings to all workspaces in the active group"
 
 [node name="Experimental" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=2126567068]

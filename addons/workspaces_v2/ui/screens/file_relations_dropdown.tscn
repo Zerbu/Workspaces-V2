@@ -5,16 +5,12 @@
 [node name="FileRelationsDropdown" type="MarginContainer" unique_id=1728547671]
 script = ExtResource("1_spgpy")
 
-[node name="OptionButton" type="OptionButton" parent="." unique_id=765243718]
+[node name="MenuButton" type="MenuButton" parent="." unique_id=374580559]
 unique_name_in_owner = true
 layout_mode = 2
-selected = 0
-item_count = 3
-popup/item_0/text = "(Related Files)"
+tooltip_text = "Related Files
+This dropdown contains files with the same name, but a different extension"
+text = "⧉"
+item_count = 1
+popup/item_0/text = "file_relations_dropdown.gd"
 popup/item_0/id = 0
-popup/item_1/text = "file_relations_dropdown.gd"
-popup/item_1/id = 1
-popup/item_2/text = "file_relations_dropdown.tscn"
-popup/item_2/id = 2
-
-[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

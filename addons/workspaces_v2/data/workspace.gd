@@ -18,12 +18,14 @@ enum FileSystemAutoNavigateTypes
 
 @export var layout_name: String
 @export var _groups: Array[WorkspaceGroup]
+@export var auto_set_main_screen: String
 
+# FileSystem
 @export var filesystem_auto_navigate_type: FileSystemAutoNavigateTypes
 @export var filesystem_auto_navigate_path: String
 @export var auto_set_file_on_unapply: bool
+@export var auto_open_file: bool
 
-@export var auto_set_main_screen: String
 @export var force_save_layout: bool
 
 @export var hide_menu_bar: bool
@@ -303,6 +305,15 @@ func _on_lazy_process():
 						return true
 				return false
 			)
+
+#region Auto Open
+func _on_selected_file_changed():
+	if not auto_open_file:
+		return
+	var file = EditorInterface.get_current_path()
+	if not FileAccess.file_exists(file):
+		return
+	GrapplerFileSystem.open_file(file)
 
 #region Save/Load
 func _on_save():
