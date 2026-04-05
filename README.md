@@ -19,3 +19,13 @@ Workspaces is a plugin for Godot that allows you to create an quickly swap betwe
 # Experimental Features
 - Automatically save the layout when exiting the Workspace. (Note: This is hacky and causes the "Save Layout" dialog to flash on the screen)
 - Set file filters for names and extensions to restrict what shows in the FileSystem dock.
+
+# Screenshots
+![](https://github.com/Zerbu/Workspaces-V2/blob/main/.screenshots/Screenshot1.png)
+![](https://github.com/Zerbu/Workspaces-V2/blob/main/.screenshots/Screenshot2.png)
+![](https://github.com/Zerbu/Workspaces-V2/blob/main/.screenshots/Screenshot3.png)
+![](https://github.com/Zerbu/Workspaces-V2/blob/main/.screenshots/Screenshot4.png)
+![](https://github.com/Zerbu/Workspaces-V2/blob/main/.screenshots/Screenshot5.png)
+![](https://github.com/Zerbu/Workspaces-V2/blob/main/.screenshots/Screenshot6.png)
+![](https://github.com/Zerbu/Workspaces-V2/blob/main/.screenshots/Screenshot7.png)
+![](https://github.com/Zerbu/Workspaces-V2/blob/main/.screenshots/Screenshot8.png)
